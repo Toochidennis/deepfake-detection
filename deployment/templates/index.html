@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initialscale="1.0">
+    <title>Deepfake Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="assets/css/style.css" rel="stylesheet" media="screen">
+    <script src="htttps://fontawesome.com/a076d05399.js">
+    </script>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">DeepFakes</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+   
+
+        <div id="loading"></div>
+        <div class="content">
+            <h1>DEEP FAKE<br><span>DETECTION</span></h1>
+            <p class="par">DeepFake technology is incredibly advance and can easily<br> confuse humans between a real and a fake video. It has a <br>great potential in entertainment, gaming and other various<br> fields if used responsibly. This application provides
+                you a <br> platform were you can detect your own DeepFake video by <br> uploading the real or fake video.</p>
+
+
+            <!-- <button class="cn"><a href="#">UPLOAD VIDEO</a></button> -->
+    
+
+            <form action="/" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="video" id="file" class="myclass" accept=".mp4" />
+                <label for="file" style="padding: 5px">UPLOAD VIDEO</label>
+                <input class="btn btn-primary mt-3" type="submit" value="PREDICT"  style="padding: 5px; font-size:font-size: 20px;">
+
+            </form>
+      
+           
+            
+                {% if preds %}
+                <div style="border-radius:20px; background-color: white; margin-top:20px; margin-left:20px; padding: 12px; width:50%" class="text-center" width="0.1px"> 
+
+                    <h2 style="color: black">The video is {{preds}} with a prediction of {{confidence}}</h2>
+
+                </div>
+               
+                {% endif %}
+
+
+        </div>
+       
+        
+            
+    </div>
+
+    
+
+
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+</body>
+
+</html>
